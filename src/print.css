@@ -1,0 +1,44 @@
+/* Paleta inspirada na bandeira do Rio Grande do Sul. */
+.hero-panel{background:linear-gradient(120deg,#17633b 0%,#17633b 43%,#f1be36 43%,#f1be36 52%,#b72d35 52%,#b72d35 100%)}
+.brand-mark,.pdf-button{background:#b72d35}.pdf-button{box-shadow:0 4px 10px #b72d354d}.app-header a,.print-brand,.brand-group h5{color:#b72d35}.filters input:focus,.filters select:focus{outline-color:#17633b}.refresh-button{color:#17633b;background:#e7f1e9}
+/* Documento: as regras abaixo valem na TELA e no PDF.
+   Nao dependem de @media para o layout sair sempre com 4 colunas, logo e fontes grandes. */
+.catalog-document{padding:8mm}
+.document-heading{display:grid;grid-template-columns:auto minmax(0,1fr) auto;gap:6mm;align-items:center;border-bottom:3px solid #17633b;padding-bottom:4mm}
+.pdf-logo{display:block;width:auto;height:11mm;object-fit:contain;object-position:left center}
+.document-heading h2{margin-top:1mm;color:#17633b;font-size:26pt;line-height:1.05}
+.print-brand{font-size:11pt;letter-spacing:.1em}
+.document-heading>span{color:#5f7180;font-size:11pt;font-weight:700}
+.department{margin-top:7mm}
+.department h3{background:#17633b;color:#fff;font-size:18pt;padding:4mm 5mm;border-radius:2mm;break-after:avoid}
+.section-group{margin-top:5mm}
+.section-group h4{border-bottom:3px solid #f1be36;border-left:5px solid #17633b;color:#17633b;font-size:17pt;font-weight:900;text-transform:uppercase;letter-spacing:.04em;padding:1mm 3mm 2mm;margin-bottom:5mm;break-after:avoid}
+.brand-group{margin:4mm 0 6mm}
+.brand-group+.brand-group{border-top:1px solid #dfe7df;padding-top:4mm}
+.brand-group h5{display:flex;align-items:center;gap:3mm;font-size:13pt;margin-bottom:3mm;break-after:avoid}
+.brand-group h5::after{content:'';height:2px;max-width:30mm;flex:1;background:#f1be36;border-radius:2px}
+/* Grade do catalogo: no maximo 4 cards por linha, em qualquer largura (tela ou A4). */
+.product-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:4mm;align-items:start}
+.product-card{box-shadow:0 2px 8px #173d6010}
+.product-image{aspect-ratio:1/1;padding:2mm;background:#fafbf8}
+.product-card figcaption{font-size:11pt;font-weight:700;line-height:1.3;text-align:center;padding:3mm 2mm 3.5mm;overflow-wrap:anywhere}
+@media print{
+  @page{size:A4;margin:0}
+  html,body{background:#fff!important}
+  .app-shell{position:relative}
+  .catalog-document{border:0!important;border-radius:0!important;padding:8mm!important}
+  .department{break-before:auto!important;break-inside:auto!important;margin-top:7mm!important}
+  .department h3{background:#17633b!important;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .section-group,.brand-group{break-inside:auto!important}
+  .section-group h4,.brand-group h5,.department h3{break-after:avoid}
+  .product-grid{grid-template-columns:repeat(4,minmax(0,1fr))!important;gap:4mm!important}
+  .product-card{break-inside:avoid;flex:none;max-width:100%}
+}
+/* Somente TELA estreita: empilha o cabecalho do documento.
+   Como e @media screen, nunca interfere no PDF (no PDF a logo fica sempre ao lado do titulo, em A4). */
+@media screen and (max-width:720px){
+  .document-heading{grid-template-columns:minmax(0,1fr) auto;gap:2mm 4mm}
+  .document-heading h2{font-size:16pt}
+  .document-heading>span{font-size:9pt}
+  .pdf-logo{grid-column:1/-1;justify-self:start;height:10mm}
+}
