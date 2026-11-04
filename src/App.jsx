@@ -94,7 +94,7 @@ function App() {
         ...others.flatMap((p) => p.produtos || []),
       ]);
     } catch (e) {
-      setError(e.message || "O catálogo não pôde ser carregado.");
+      setError(e.message || "O catálogo não pôde ser carregado.");//
     } finally {
       setLoading(false);
     }
