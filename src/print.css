@@ -42,3 +42,4 @@
   .document-heading>span{font-size:9pt}
   .pdf-logo{grid-column:1/-1;justify-self:start;height:10mm}
 }
+.product-card .product-code{font-size:9.5pt;margin-bottom:1mm;color:#17633b;-webkit-print-color-adjust:exact;print-color-adjust:exact}

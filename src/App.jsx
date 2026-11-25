@@ -123,7 +123,7 @@ function App() {
           (!section || p.CATEGORIA === section) &&
           (!brand || p.MARCA === brand) &&
           (!term ||
-            `${p.DESCRICAO} ${p.MARCA}`
+            `${p.CODPROD} ${p.DESCRICAO} ${p.MARCA}`
               .toLocaleLowerCase("pt-BR")
               .includes(term)) &&
           p.IMAGEM &&
@@ -172,7 +172,7 @@ function App() {
           <input
             value={search}
             onChange={(e) => setSearch(e.target.value)}
-            placeholder="Buscar produto ou marca"
+            placeholder="Buscar produto, código ou marca"
           />
         </label>
         <label>
@@ -284,7 +284,12 @@ function App() {
                                 onError={() => invalidate(p.CODPROD)}
                               />
                             </div>
-                            <figcaption>{p.DESCRICAO}</figcaption>
+                            <figcaption>
+                              <span className="product-code">
+                                Cód. {p.CODPROD}
+                              </span>
+                              {p.DESCRICAO}
+                            </figcaption>
                           </figure>
                         ))}
                       </div>

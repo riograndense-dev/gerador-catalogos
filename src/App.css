@@ -368,3 +368,11 @@ button {
     margin-top: 15px;
   }
 }
+.product-code {
+  display: block;
+  margin-bottom: 4px;
+  color: #17633b;
+  font-size: 0.7rem;
+  font-weight: 800;
+  letter-spacing: 0.02em;
+}
